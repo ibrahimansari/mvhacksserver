@@ -47,4 +47,4 @@ setInterval(function() {
 			$p.html($p.html() + " ag a In! ");
 		});
 	});
-},20000);
+},17280);

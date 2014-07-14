@@ -1,0 +1,21 @@
+@font-face {
+    font-family: HACKED;
+    src: url("HACKED.ttf");
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: black url('background.png');
+    background-size: cover;
+}
+
+#log {
+    font-size: 18px;
+    word-wrap: break-word;
+    color: #00ff00;
+    font-family: HACKED, monospace;
+}
