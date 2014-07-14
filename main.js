@@ -4,7 +4,7 @@ var eventid = 12270965789;
 setInterval(function() {
 	$.getJSON("https://www.eventbriteapi.com/v3/events/"+eventid+"/attendees/?token=YW3XQMES4NXNC4ETYWHS", function(data) {
 		firebase.on('value', function(firedata) {
-			var formatted = firedata;
+			var formatted = {};//firedata;
 			var i;
 			for (i = 0; i < data.attendees.length; ++i) {
 				var attendee = data.attendees[i];
