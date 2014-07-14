@@ -1,8 +1,9 @@
 var firebase = new Firebase("https://mvhacks.firebaseio.com/");
 var eventid = 12270965789;
+var token = "YW3XQMES4NXNC4ETYWHS";
 
 setInterval(function() {
-	$.getJSON("https://www.eventbriteapi.com/v3/events/"+eventid+"/attendees/?token=YW3XQMES4NXNC4ETYWHS", function(data) {
+	$.getJSON("https://www.eventbriteapi.com/v3/events/"+eventid+"/attendees/?token="+token, function(data) {
 		firebase.on('value', function(firedata) {
 			var formatted = firedata.val();
 			var i;
@@ -11,9 +12,12 @@ setInterval(function() {
 				var id = attendee.id;
 				if (formatted[id] === undefined) {
 					formatted[id] = {};
-					formatted[id].name = attendee.profile.first_name + " " + attendee.profile.last_name;
+					formatted[id].firstname = attendee.profile.first_name;
+					formatted[id].lastname = attendee.profile.last_name;
 					formatted[id].email = attendee.profile.email;
-					formatted[id].url = attendee.profile.website;
+					formatted[id].age = attendee.profile.age;
+					formatted[id].gender = attendee.profile.gender;
+					formatted[id].website = attendee.profile.website;
 					formatted[id].school = attendee.answers[0].answer;
 					formatted[id].year = attendee.answers[1].answer;
 					formatted[id].size = attendee.answers[2].answer;
