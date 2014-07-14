@@ -4,7 +4,7 @@ var eventid = 12270965789;
 setInterval(function() {
 	$.getJSON("https://www.eventbriteapi.com/v3/events/"+eventid+"/attendees/?token=YW3XQMES4NXNC4ETYWHS", function(data) {
 		firebase.on('value', function(firedata) {
-			var formatted = {};//firedata;
+			var formatted = firedata.val();
 			var i;
 			for (i = 0; i < data.attendees.length; ++i) {
 				var attendee = data.attendees[i];
@@ -28,7 +28,7 @@ setInterval(function() {
 				}
 				$("#log").html($("#log").html() + " " + id + " " + formatted[id].name + " " + formatted[id].email + " " + formatted[id].url + " " + formatted[id].school + " " + formatted[id].year + " " + formatted[id].size + " " + formatted[id].food + " " + formatted[id].experience + " " + formatted[id].passphrase + " " + formatted[id].image);
 			}
-			firebase.set(formatted);
+			firebase.update(formatted);
 		});
 	});
 },20000);
