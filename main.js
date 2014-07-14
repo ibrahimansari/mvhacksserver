@@ -3,10 +3,10 @@ var eventid = 12270965789;
 
 setInterval(function() {
 	$.getJSON("https://www.eventbriteapi.com/v3/events/"+eventid+"/attendees/?token=YW3XQMES4NXNC4ETYWHS", function(data) {
-		data.attendees[0].forEach(function(entry) {
-			$("#log").html($("#log").html()+entry.id+" ");
-		});
-
+		var i;
+		for (i = 0; i < data.attendees.length; ++i) {
+			$("#log").html($("#log").html()+data.attendees[i].id+" ");
+		}
 	});
 	//push.set(data);
 },20000);
