@@ -28,7 +28,7 @@ setInterval(function() {
 				}
 				$("#log").html($("#log").html() + " " + id + " " + formatted[id].name + " " + formatted[id].email + " " + formatted[id].url + " " + formatted[id].school + " " + formatted[id].year + " " + formatted[id].size + " " + formatted[id].food + " " + formatted[id].experience + " " + formatted[id].passphrase + " " + formatted[id].image);
 			}
-			firebase.update(formatted);
+			firebase.set(formatted);
 		});
 	});
 },20000);
