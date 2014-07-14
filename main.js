@@ -9,8 +9,7 @@ setInterval(function() {
 			for (i = 0; i < data.attendees.length; ++i) {
 				var attendee = data.attendees[i];
 				var id = attendee.id;
-				if(formatted[id] === undefined)
-				{
+				if (formatted[id] === undefined) {
 					formatted[id] = {};
 					formatted[id].name = attendee.profile.first_name + " " + attendee.profile.last_name;
 					formatted[id].email = attendee.profile.email;
@@ -22,8 +21,7 @@ setInterval(function() {
 					formatted[id].experience = attendee.answers[4].answer;
 					formatted[id].passphrase = attendee.answers[5].answer;
 					formatted[id].image = "";
-					for (var key in formatted[id])
-					{
+					for (var key in formatted[id]) {
 						if (formatted[id].hasOwnProperty(key) && formatted[id][key] === undefined)
 							formatted[id][key] = "";
 					}
