@@ -1,11 +1,4 @@
-setInterval(updateFB(),600);
-
-function updateFB() {
-	var $p = $("#log");
-	$p.html($p.html()+"LOG1");
-}
-/*
-var timer = $.timer(function() {
-	$('#counter').html(++count);
-});
-timer.set({ time : 1000, autostart : true });
+setInterval(function() {
+			    var $p = $("#log");
+			    $p.html($p.html()+"LOG1");
+			},100);
