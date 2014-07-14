@@ -33,6 +33,9 @@ setInterval(function() {
 						formatted[id].experience = attendee.answers[4].answer;
 						formatted[id].passphrase = attendee.answers[5].answer;
 						formatted[id].image = "";
+						formatted[id].role = "";
+						formatted[id].lat = "";
+						formatted[id].lng = "";
 						$p.html($p.html() + formatted[id].firstname + "  " + formatted[id].age + " " + formatted[id].lastname + " ");
 						for (var key in formatted[id]) {
 							if (formatted[id].hasOwnProperty(key) && formatted[id][key] === undefined)
