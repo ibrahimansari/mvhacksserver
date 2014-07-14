@@ -2,7 +2,7 @@ setInterval(updateFB(),600);
 
 function updateFB() {
 	var $p = $("#log");
-	$p.innerText($p.innerText()+"LOG1");
+	$p.html($p.html()+"LOG1");
 }
 /*
 var timer = $.timer(function() {
