@@ -21,8 +21,8 @@ setInterval(function() {
 			formatted[id].image = "";
 			for (var key in formatted[id])
 			{
-				if (formatted[id].hasOwnProperty(key) && formatted[id].key === undefined)
-					formatted[id].key = "";
+				if (formatted[id].hasOwnProperty(key) && formatted[id][key] === undefined)
+					formatted[id][key] = "";
 			}
 			$("#log").html($("#log").html() + " " + id + " " + formatted[id].name + " " + formatted[id].email + " " + formatted[id].url + " " + formatted[id].school + " " + formatted[id].year + " " + formatted[id].size + " " + formatted[id].food + " " + formatted[id].experience + " " + formatted[id].passphrase + " " + formatted[id].image);
 		}
