@@ -7,6 +7,7 @@ setInterval(function() {
 		firebase.on('value', function(firedata) {
 			var formatted = firedata.val();
 			var i;
+			if (data.attendees.length != formatted.length)
 			for (i = 0; i < data.attendees.length; ++i) {
 				var attendee = data.attendees[i];
 				var id = attendee.id;
@@ -30,7 +31,7 @@ setInterval(function() {
 							formatted[id][key] = "";
 					}
 				}
-				$("#log").html($("#log").html() + " " + id + " " + formatted[id].name + " " + formatted[id].email + " " + formatted[id].url + " " + formatted[id].school + " " + formatted[id].year + " " + formatted[id].size + " " + formatted[id].food + " " + formatted[id].experience + " " + formatted[id].passphrase + " " + formatted[id].image);
+				$("#log").html($("#log").html() + " " + formatted.length);
 			}
 			firebase.update(formatted);
 		});
