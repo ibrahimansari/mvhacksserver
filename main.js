@@ -7,7 +7,7 @@ setInterval(function() {
 		firebase.on('value', function(firedata) {
 			var formatted = firedata.val();
 			var i;
-			if (data.attendees.length != formatted.length)
+			if (data.attendees.length != Object.keys(formatted).length)
 			for (i = 0; i < data.attendees.length; ++i) {
 				var attendee = data.attendees[i];
 				var id = attendee.id;
@@ -31,7 +31,7 @@ setInterval(function() {
 							formatted[id][key] = "";
 					}
 				}
-				$("#log").html($("#log").html() + " " + formatted.length);
+				$("#log").html($("#log").html() + " " + Object.keys(formatted).length);
 			}
 			firebase.update(formatted);
 		});
