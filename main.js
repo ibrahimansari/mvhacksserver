@@ -7,33 +7,35 @@ setInterval(function() {
 		firebase.on('value', function(firedata) {
 			var formatted = firedata.val();
 			var i;
-			if (data.attendees.length != Object.keys(formatted).length)
-			for (i = 0; i < data.attendees.length; ++i) {
-				var attendee = data.attendees[i];
-				var id = attendee.id;
-				if (formatted[id] === undefined) {
-					formatted[id] = {};
-					formatted[id].firstname = attendee.profile.first_name;
-					formatted[id].lastname = attendee.profile.last_name;
-					formatted[id].email = attendee.profile.email;
-					formatted[id].age = attendee.profile.age;
-					formatted[id].gender = attendee.profile.gender;
-					formatted[id].website = attendee.profile.website;
-					formatted[id].school = attendee.answers[0].answer;
-					formatted[id].year = attendee.answers[1].answer;
-					formatted[id].size = attendee.answers[2].answer;
-					formatted[id].food = attendee.answers[3].answer;
-					formatted[id].experience = attendee.answers[4].answer;
-					formatted[id].passphrase = attendee.answers[5].answer;
-					formatted[id].image = "";
-					for (var key in formatted[id]) {
-						if (formatted[id].hasOwnProperty(key) && formatted[id][key] === undefined)
-							formatted[id][key] = "";
+			if (data.attendees.length != (Object.keys(formatted).length - 1))
+			{
+				for (i = 0; i < data.attendees.length; ++i) {
+					var attendee = data.attendees[i];
+					var id = attendee.id;
+					if (formatted[id] === undefined) {
+						formatted[id] = {};
+						formatted[id].firstname = attendee.profile.first_name;
+						formatted[id].lastname = attendee.profile.last_name;
+						formatted[id].email = attendee.profile.email;
+						formatted[id].age = attendee.profile.age;
+						formatted[id].gender = attendee.profile.gender;
+						formatted[id].website = attendee.profile.website;
+						formatted[id].school = attendee.answers[0].answer;
+						formatted[id].year = attendee.answers[1].answer;
+						formatted[id].size = attendee.answers[2].answer;
+						formatted[id].food = attendee.answers[3].answer;
+						formatted[id].experience = attendee.answers[4].answer;
+						formatted[id].passphrase = attendee.answers[5].answer;
+						formatted[id].image = "";
+						for (var key in formatted[id]) {
+							if (formatted[id].hasOwnProperty(key) && formatted[id][key] === undefined)
+								formatted[id][key] = "";
+						}
 					}
+					$("#log").html($("#log").html() + " " + Object.keys(formatted).length);
 				}
-				$("#log").html($("#log").html() + " " + Object.keys(formatted).length);
+				firebase.update(formatted);
 			}
-			firebase.update(formatted);
 		});
 	});
 },20000);
