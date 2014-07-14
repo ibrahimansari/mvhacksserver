@@ -47,4 +47,5 @@ setInterval(function() {
 			$p.html($p.html() + " ag a In! ");
 		});
 	});
+	$('html, body').animate({scrollTop: $(document).height()}, 'slow');
 },17280);
