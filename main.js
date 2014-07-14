@@ -18,9 +18,12 @@ setInterval(function() {
 			formatted[id].food = attendee.answers[3].answer;
 			formatted[id].experience = attendee.answers[4].answer;
 			formatted[id].passphrase = attendee.answers[5].answer;
-			if(formatted[id].passphrase === undefined)
-				formatted[id].passphrase = "";
 			formatted[id].image = "";
+			for (var key in formatted[id])
+			{
+				if (formatted[id].hasOwnProperty(key) && formatted[id].key === undefined)
+					formatted[id].key = "";
+			}
 			$("#log").html($("#log").html() + " " + id + " " + formatted[id].name + " " + formatted[id].email + " " + formatted[id].url + " " + formatted[id].school + " " + formatted[id].year + " " + formatted[id].size + " " + formatted[id].food + " " + formatted[id].experience + " " + formatted[id].passphrase + " " + formatted[id].image);
 		}
 		push.set(formatted);
