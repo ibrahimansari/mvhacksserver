@@ -11,7 +11,7 @@ setInterval(function() {
 			$p.html($p.html() + " fI r  e ba  s ee ");
 			var formatted = firedata.val();
 			var i;
-			$p.html($p.html() + data.attendees.length + "  " + (Object.keys(formatted).length - 1) + " ");
+			$p.html($p.html() + data.attendees.length + "  " + (Object.keys(formatted).length - 2) + " ");
 			if (data.attendees.length != (Object.keys(formatted).length - 2))
 			{
 				for (i = 0; i < data.attendees.length; ++i) {
