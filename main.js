@@ -12,7 +12,7 @@ setInterval(function() {
 			var formatted = firedata.val();
 			var i;
 			$p.html($p.html() + data.attendees.length + "  " + (Object.keys(formatted).length - 1) + " ");
-			if (data.attendees.length != (Object.keys(formatted).length - 2s))
+			if (data.attendees.length != (Object.keys(formatted).length - 2))
 			{
 				for (i = 0; i < data.attendees.length; ++i) {
 					var attendee = data.attendees[i];
