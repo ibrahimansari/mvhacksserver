@@ -8,7 +8,7 @@ setInterval(function() {
 	$.getJSON("https://www.eventbriteapi.com/v3/events/"+eventid+"/attendees/?token="+token, function(data) {
 		$p.html($p.html() + "  ev e e nt  b r I  te");
 		firebase.on('value', function(firedata) {
-			$p.html($p.html() + " fI r  e ba  s ee ");
+			$p.html($p.html() + " fI r  e ba  s ee ");s
 			var formatted = firedata.val();
 			var i;
 			$p.html($p.html() + data.attendees.length + "  " + (Object.keys(formatted).length - 2) + " ");
