@@ -1,6 +1,6 @@
 var firebase = new Firebase("https://mvhacks.firebaseio.com/");
-var eventid = 12184980605; //12270965789;
-var token = "4YG72UOQTN4T4XJLIPZ7"; //YW3XQMES4NXNC4ETYWHS";
+var eventid = 12674613109;
+var token = "4RCZGRVUAEO5HWSJTRYM";
 var $p = $("#log");
 
 setInterval(function() {
